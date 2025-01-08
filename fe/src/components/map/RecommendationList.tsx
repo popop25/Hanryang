@@ -5,19 +5,29 @@ const RecommendationList: React.FC<{ onSelect: (id: number) => void }> = ({
   onSelect,
 }) => {
   return (
-    <div className="p-4">
-      <h2 className="text-xl font-bold mb-4">추천 장소</h2>
-      <ul className="space-y-2">
-        {locations.map((loc) => (
-          <li
-            key={loc.id}
-            className="cursor-pointer text-blue-600 hover:underline"
-            onClick={() => onSelect(loc.id)}
-          >
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {locations.map((loc) => (
+        <div
+          key={loc.id}
+          className="flex flex-col items-center text-center cursor-pointer p-4 border-2 rounded-lg border-[#3065AC] hover:shadow-lg transition-shadow"
+          onClick={() => onSelect(loc.id)}
+        >
+          {/* 이미지 */}
+          <div className="w-32 h-32 rounded-full overflow-hidden transform transition-transform hover:scale-110">
+            <img
+              src={loc.image}
+              alt={loc.name}
+              className="w-full h-full object-cover"
+            />
+          </div>
+          {/* 이름 */}
+          <div className="mt-4 text-lg font-bold text-[#3065AC]">
             {loc.name}
-          </li>
-        ))}
-      </ul>
+          </div>
+          {/* 설명 */}
+          <div className="text-sm text-gray-500">{loc.description}</div>
+        </div>
+      ))}
     </div>
   );
 };

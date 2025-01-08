@@ -14,9 +14,6 @@ const Header: React.FC = () => {
         <Link to="/">PLAY GROUND</Link>
       </div>
       <nav className="flex space-x-4">
-        <Link to="/team" className="hover:underline">
-          TEAM
-        </Link>
         <Link to="/recommendation" className="hover:underline">
           RECOMMEND
         </Link>
