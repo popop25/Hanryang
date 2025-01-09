@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "ES6", // ES6로 컴파일
+    "module": "CommonJS", // Node.js 모듈 시스템
+    "rootDir": "./", // 소스 파일 루트 디렉토리 (현재 디렉토리)
+    "outDir": "./dist", // 빌드 결과 저장 디렉토리
+    "baseUrl": "./", // 경로 기준 디렉토리
+    "paths": {
+      "@/*": ["*"] // @/ 경로 Alias 설정
+    },
+    "strict": true, // 엄격한 타입 검사
+    "esModuleInterop": true, // ES6 모듈 호환
+    "skipLibCheck": true, // 라이브러리 타입 검사 건너뛰기
+    "forceConsistentCasingInFileNames": true, // 경로 대소문자 일관성 강제
+    "resolveJsonModule": true
+  },
+  "include": ["types", "**/*"], // 모든 파일 포함
+  "exclude": ["node_modules", "dist"] // 제외할 파일 경로
+}
