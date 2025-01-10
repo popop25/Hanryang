@@ -3,13 +3,14 @@ import Sequelize, {
   InferAttributes,
   InferCreationAttributes,
   ModelStatic,
+  CreationOptional,
 } from "sequelize";
 
 class Bookmark extends Model<
   InferAttributes<Bookmark>,
   InferCreationAttributes<Bookmark>
 > {
-  declare id: number;
+  declare id: CreationOptional<number>; // 선택적 필드로 변경
   declare user_id: number;
   declare location_id: number;
 
