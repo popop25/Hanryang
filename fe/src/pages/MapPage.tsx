@@ -1,36 +1,18 @@
-// import React from "react";
-// import Map from "../components/map/Map";
-// import RecommendationList from "../components/map/RecommendationList";
-// import { locations } from "../data/locations";
-
-// const MapPage: React.FC = () => {
-//   const handleSelectLocation = (id: number) => {
-//     const location = locations.find((loc) => loc.id === id);
-//     if (location && window.kakao && window.kakao.maps && mapRef.current) {
-//       const { kakao } = window;
-//       const map = mapRef.current;
-//       const moveLatLon = new kakao.maps.LatLng(location.lat, location.lng);
-//       map.panTo(moveLatLon);
-//     }
-//   };
-
-//   return (
-//     <div className="h-screen flex flex-col">
-//       <Map />
-//       <RecommendationList onSelect={handleSelectLocation} />
-//     </div>
-//   );
-// };
-
-// export default MapPage;
-
 import React from "react";
 import MapBox from "@/components/map/MapBox";
+import RecommendationList from "@/components/map/RecommendationList";
 
 const MapPage: React.FC = () => {
   return (
-    <div className="w-full h-screen flex justify-center items-center">
-      <MapBox />
+    <div className="w-full flex flex-col items-center">
+      {/* 지도 */}
+      <div className="w-[80%] h-[500px] my-4">
+        <MapBox />
+      </div>
+      {/* 추천 리스트 */}
+      <div className="w-[80%]">
+        <RecommendationList onSelect={(id) => console.log(`Selected: ${id}`)} />
+      </div>
     </div>
   );
 };

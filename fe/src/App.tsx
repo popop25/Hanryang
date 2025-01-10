@@ -2,8 +2,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./components/common/Layout";
 import Home from "./pages/Home";
-import Recommendation from "./pages/Recommendation";
 import MapPage from "./pages/MapPage";
+import RecommendationPage from "./pages/RecommendationPage";
 
 const App = () => {
   return (
@@ -11,7 +11,7 @@ const App = () => {
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/recommendation" element={<Recommendation />} />
+          <Route path="/recommendation" element={<RecommendationPage />} />
           <Route path="/map" element={<MapPage />} />
         </Routes>
       </Layout>
