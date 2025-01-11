@@ -20,6 +20,7 @@
 
 // startServer();
 
+//server.ts
 require("tsconfig-paths/register");
 import app from "./app";
 import { sequelize } from "./models";

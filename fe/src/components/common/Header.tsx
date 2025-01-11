@@ -1,12 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import LoginModal from "./LoginModal";
+import useAuthStore from "@/stores/authStore";
+import { redirectToKakaoLogin } from "@/api/authApi";
 
 const Header: React.FC = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { user, logout, loading } = useAuthStore();
 
-  const handleOpenModal = () => setIsModalOpen(true);
-  const handleCloseModal = () => setIsModalOpen(false);
+  const handleLogin = () => {
+    redirectToKakaoLogin(); // 카카오 로그인 페이지로 이동
+  };
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+    } catch (err) {
+      console.error("로그아웃 실패:", err);
+    }
+  };
 
   return (
     <header className="flex justify-between items-center p-4 bg-gray-800 text-white">
@@ -20,11 +30,17 @@ const Header: React.FC = () => {
         <Link to="/map" className="hover:underline">
           MAP
         </Link>
-        <button onClick={handleOpenModal} className="hover:underline">
-          LOGIN
-        </button>
+        {user ? (
+          <button onClick={handleLogout} className="hover:underline">
+            LOGOUT {user.nick}
+          </button>
+        ) : (
+          <button onClick={handleLogin} className="hover:underline">
+            LOGIN
+          </button>
+        )}
       </nav>
-      {isModalOpen && <LoginModal onClose={handleCloseModal} />}
+      {loading && <p>Loading...</p>}
     </header>
   );
 };

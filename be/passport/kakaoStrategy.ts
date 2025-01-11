@@ -6,8 +6,8 @@ export default () => {
   passport.use(
     new KakaoStrategy(
       {
-        clientID: process.env.KAKAO_ID!, // 카카오 REST API 키
-        callbackURL: "/auth/kakao/callback",
+        clientID: process.env.KAKAO_CLIENT_ID!, // .env에 맞는 변수명으로 수정
+        callbackURL: process.env.KAKAO_CALLBACK_URL!, // .env에 설정된 콜백 URL
       },
       async (accessToken, refreshToken, profile, done) => {
         try {
