@@ -6,10 +6,10 @@ import session from "express-session";
 import passport from "passport";
 import cors from "cors";
 
-import authRouter from "@/routes/auth";
-import userRouter from "@/routes/user";
-import locationRouter from "@/routes/location";
-import passportConfig from "@/passport/passportConfig";
+import authRouter from "./routes/auth";
+import userRouter from "./routes/user";
+import locationRouter from "./routes/location";
+import passportConfig from "./passport/passportConfig";
 
 dotenv.config();
 const app = express();

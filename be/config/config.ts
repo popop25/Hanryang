@@ -1,25 +1,31 @@
 import { Dialect } from "sequelize";
+import * as dotenv from "dotenv";
+
+dotenv.config(); // .env 파일 로드
 
 export default {
   development: {
-    username: "root",
-    password: "251625",
-    database: "playground",
-    host: "127.0.0.1",
-    dialect: "mysql" as Dialect, // Dialect 타입 지정
+    username: process.env.DB_USERNAME || "root",
+    password: process.env.DB_PASSWORD || "251625",
+    database: process.env.DB_DATABASE || "playground",
+    host: process.env.DB_HOST || "127.0.0.1",
+    port: Number(process.env.DB_PORT) || 3306,
+    dialect: "mysql" as Dialect,
   },
   test: {
-    username: "root",
-    password: "251625",
-    database: "playground_test",
-    host: "127.0.0.1",
+    username: process.env.DB_USERNAME || "root",
+    password: process.env.DB_PASSWORD || "251625",
+    database: `${process.env.DB_DATABASE}_test` || "playground_test",
+    host: process.env.DB_HOST || "127.0.0.1",
+    port: Number(process.env.DB_PORT) || 3306,
     dialect: "mysql" as Dialect,
   },
   production: {
-    username: "root",
-    password: "251625",
-    database: "playground_prod",
-    host: "127.0.0.1",
+    username: process.env.DB_USERNAME || "root",
+    password: process.env.DB_PASSWORD || "251625",
+    database: `${process.env.DB_DATABASE}_prod` || "playground_prod",
+    host: process.env.DB_HOST || "127.0.0.1",
+    port: Number(process.env.DB_PORT) || 3306,
     dialect: "mysql" as Dialect,
   },
 };

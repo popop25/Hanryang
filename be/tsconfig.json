@@ -7,7 +7,7 @@
     "outDir": "./dist", // 빌드 결과 저장 디렉토리
     "baseUrl": "./", // 경로 기준 디렉토리
     "paths": {
-      "@/*": ["*"] // @/ 경로 Alias 설정
+      "@/*": ["./*"]
     },
     "strict": true, // 엄격한 타입 검사
     "esModuleInterop": true, // ES6 모듈 호환
@@ -15,6 +15,6 @@
     "forceConsistentCasingInFileNames": true, // 경로 대소문자 일관성 강제
     "resolveJsonModule": true
   },
-  "include": ["types", "**/*"], // 모든 파일 포함
+  "include": ["./**/*.ts"],
   "exclude": ["node_modules", "dist"] // 제외할 파일 경로
 }

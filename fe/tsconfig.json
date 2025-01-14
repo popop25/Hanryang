@@ -14,9 +14,8 @@
     "paths": {
       "@/*": ["src/*"]
     },
-    "allowSyntheticDefaultImports": true,
-    "types": ["kakao.maps"] // Kakao 지도 타입 추가
+    "allowSyntheticDefaultImports": true
   },
-  "include": ["src/**/*", "src/types/global.d.ts"], // 글로벌 타입 포함
+  "include": ["src/**/*", "src/types/global.d.ts", "src/types/kakao.maps.d.ts"], // kakao.maps 타입 명시적으로 포함
   "exclude": ["node_modules", "build"]
 }
